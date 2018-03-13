@@ -47,6 +47,7 @@
 		82D7B25820584E8900442043 /* NotificationSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D7B25C20584E8900442043 /* NotificationSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSampleUITests.swift; sourceTree = "<group>"; };
 		82D7B25E20584E8900442043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82D7B26A20584FD200442043 /* NotificationSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationSample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		82D7B23B20584E8900442043 /* NotificationSample */ = {
 			isa = PBXGroup;
 			children = (
+				82D7B26A20584FD200442043 /* NotificationSample.entitlements */,
 				82D7B23C20584E8900442043 /* AppDelegate.swift */,
 				82D7B23E20584E8900442043 /* ViewController.swift */,
 				82D7B24020584E8900442043 /* Main.storyboard */,
@@ -194,6 +196,14 @@
 					82D7B23820584E8900442043 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					82D7B24C20584E8900442043 = {
 						CreatedOnToolsVersion = 9.2;
@@ -426,9 +436,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotificationSample/NotificationSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PD7KXFUU8;
 				INFOPLIST_FILE = NotificationSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.NotificationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,9 +453,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotificationSample/NotificationSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PD7KXFUU8;
 				INFOPLIST_FILE = NotificationSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.NotificationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
