@@ -10,10 +10,10 @@ import UIKit
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let notificationDelegate = SampleNotificationDelegate()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.configureNotification()
@@ -39,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+            center.delegate = notificationDelegate
+            let openAction = UNNotificationAction(identifier: "OpenNotification", title: NSLocalizedString("Abrir", comment: ""), options: UNNotificationActionOptions.foreground)
+            let deafultCategory = UNNotificationCategory(identifier: "CustomSamplePush", actions: [openAction], intentIdentifiers: [], options: [])
+            center.setNotificationCategories(Set([deafultCategory]))
         }
         UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
         UIApplication.shared.registerForRemoteNotifications()
